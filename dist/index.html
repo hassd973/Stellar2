@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stellar Consults 🚀</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=VT323&family=Source+Code+Pro:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.96/build/spline-viewer.js"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-white text-black transition-colors duration-400">
+  <!-- Starfield Canvas -->
+  <canvas id="starfield" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 0; display: block;"></canvas>
+
+  <!-- Navigation Bar -->
+  <nav class="fixed top: 0; w-full z-30 py-4">
+    <div class="container mx-auto px-4 max-w-4xl flex justify-between items-center flex-wrap">
+      <a href="#home" class="logo text-2xl font-semibold no-underline" aria-label="Stellar Consults Home">Stellar Consults</a>
+      <div class="flex gap-4 flex-wrap items-center">
+        <a href="#home" class="text-base font-medium hover:scale-105 transition-transform duration-400" aria-label="Home">Home</a>
+        <a href="#services" class="text-base font-medium hover:scale-105 transition-transform duration-400" aria-label="Services">Services</a>
+        <a href="#about" class="text-base font-medium hover:scale-105 transition-transform duration-400" aria-label="About">About</a>
+        <a href="#resources" class="text-base font-medium hover:scale-105 transition-transform duration-400" aria-label="Resources">Resources</a>
+        <a href="#contact" class="text-base font-medium hover:scale-105 transition-transform duration-400" aria-label="Contact">Contact</a>
+        <button id="theme-toggle" class="text-xl focus:outline-none" aria-label="Toggle Dark Mode">
+          <span class="sun-icon block">☀️</span>
+          <span class="moon-icon hidden">🌙</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Full-Background Spline Viewer and Text Bubbles -->
+  <section id="home" class="section fade-in relative text-center min-h-[80vh] flex items-center justify-center">
+    <spline-viewer url="https://prod.spline.design/QF93hExmWxJjAxAW/scene.splinecode" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; pointer-events: auto;"></spline-viewer>
+    <img class="fallback-image hidden" src="/assets/images/fallback.jpg" alt="Fallback Background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;">
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <h1 class="text-5xl font-semibold mb-4 tracking-tight"><span class="typing-text" data-title="Stellar Consults 🚀" data-font-index="0"></span></h1>
+      <p class="text-base font-normal mb-6 leading-relaxed">Welcome to Stellar Consults, where we are passionately committed to <span class="highlight">transforming</span> the healthcare landscape through innovative, state-of-the-art digital solutions meticulously crafted for dental and medical practices. Our visionary approach is designed to propel your practice into the future, equipping you with the tools and strategies needed to <span class="highlight">excel</span> in 2025 and beyond. By harnessing the latest technological advancements, we empower healthcare professionals to achieve extraordinary levels of efficiency, productivity, and patient satisfaction, ensuring your practice not only meets but exceeds the demands of a rapidly evolving industry.</p>
+      <a href="#book" class="btn book-now inline-block px-6 py-3 text-base font-medium">Book Now 📅</a>
+      <div class="text-bubble-container mt-8 flex flex-wrap justify-center gap-4">
+        <a href="#success" class="text-bubble relative">26% Revenue Boost<span class="bubble-popup hidden">Boost your revenue with our proven strategies!</span></a>
+        <a href="#team" class="text-bubble relative">Our Team<span class="bubble-popup hidden">Meet our expert consultants!</span></a>
+        <a href="#resources" class="text-bubble relative">Insights<span class="bubble-popup hidden">Explore our industry insights!</span></a>
+      </div>
+      <div id="datetime-weather" class="text-sm font-medium mt-4"></div>
+    </div>
+  </section>
+
+  <!-- Book Online Section -->
+  <section id="book" class="section fade-in text-center py-32">
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="Book Online 📅" data-font-index="0"></h2>
+      <p class="text-base font-normal mb-6 leading-relaxed">At Stellar Consults, we’ve developed an exceptionally seamless and intuitive online booking system, thoughtfully engineered to integrate effortlessly with the unique operational rhythms of your dental or medical practice. Whether you’re seeking an in-depth virtual consultation to explore innovative strategies or prefer an on-site session to dive into hands-on <span class="highlight">optimization</span>, our cutting-edge platform guarantees a streamlined, hassle-free scheduling experience. This allows you to dedicate your valuable time and energy to what truly matters—providing outstanding care to your patients while we handle the logistics with precision and care.</p>
+      <a href="#contact" class="btn schedule-btn inline-block px-6 py-3 text-base font-medium">Schedule Now</a>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="section fade-in text-center py-32">
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="About Us 🚀" data-font-index="0"></h2>
+      <p class="text-base font-normal mb-6 leading-relaxed">Since our inception in 2017, Stellar Consults has emerged as a trailblazer in the realm of healthcare practice optimization, founded by a distinguished team of seasoned consultants with a deep-rooted passion for elevating industry standards. Our unwavering mission is to <span class="highlight">empower</span> dental, medical, and wellness practices across the United States with unparalleled expertise and transformative digital solutions. We combine decades of proven experience with pioneering technology to enhance operational efficiency, foster team development, and drive strategic growth. Our comprehensive approach ensures that our clients not only adapt to the challenges of a dynamic healthcare environment but also flourish, establishing themselves as leaders in their respective fields.</p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section fade-in text-center py-32">
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="Services We Offer 🛠️" data-font-index="0"></h2>
+      <ul class="grid list-disc pl-6 mb-6 text-left max-w-2xl mx-auto text-base font-medium">
+        <li class="service-item mb-4 cursor-pointer relative" data-service-id="1" tabindex="0">Healthcare Operations Management Support: Leverage our advanced tools and expertly designed processes to streamline your daily operations, reducing inefficiencies and enhancing patient <span class="highlight">throughput</span>.<span class="bubble-popup hidden">Streamline your operations!</span></li>
+        <li class="service-item mb-4 cursor-pointer relative" data-service-id="2" tabindex="0">Leadership Coaching: Benefit from personalized, one-on-one coaching sessions that sharpen your decision-making skills and elevate your ability to lead and inspire your team effectively.<span class="bubble-popup hidden">Elevate your leadership!</span></li>
+        <li class="service-item mb-4 cursor-pointer relative" data-service-id="3" tabindex="0">Short & Long-Term Growth Evaluations: Receive in-depth, data-driven strategies meticulously crafted to ensure sustainable growth and long-term success for your practice.<span class="bubble-popup hidden">Plan for growth!</span></li>
+        <li class="service-item mb-4 cursor-pointer relative" data-service-id="4" tabindex="0">Structured Goal Planning with KPIs: Collaborate with us to establish clear, achievable goals supported by key performance indicators, providing a roadmap to measurable progress.<span class="bubble-popup hidden">Set clear goals!</span></li>
+        <li class="service-item mb-4 cursor-pointer relative" data-service-id="5" tabindex="0">Virtual HR Services: Access our comprehensive remote solutions for talent acquisition, regulatory compliance, and employee management, all tailored to your practice’s needs.<span class="bubble-popup hidden">Simplify HR tasks!</span></li>
+        <li class="service-item mb-4 cursor-pointer relative" data-service-id="6" tabindex="0">HRIS Implementation: Deploy sophisticated human resource information systems to optimize workforce management and improve operational oversight.<span class="bubble-popup hidden">Optimize HR systems!</span></li>
+        <li class="service-item mb-4 cursor-pointer relative" data-service-id="7" tabindex="0">Clinical Department Development: Tap into our expert guidance to enhance your clinical teams, fostering skill development and operational excellence.<span class="bubble-popup hidden">Boost clinical teams!</span></li>
+        <li class="service-item mb-4 cursor-pointer relative" data-service-id="8" tabindex="0">Buildout Guidance Plans: Navigate facility expansions with our strategic planning services, ensuring a smooth and successful growth process.<span class="bubble-popup hidden">Expand with ease!</span></li>
+        <li class="service-item mb-4 cursor-pointer relative" data-service-id="9" tabindex="0">Financial Analysis & Reporting: Gain profound insights into your practice’s financial health with our detailed analyses and actionable reporting.<span class="bubble-popup hidden">Understand your finances!</span></li>
+        <li class="service-item mb-4 cursor-pointer relative" data-service-id="10" tabindex="0">Workflow Optimization: Refine patient flow and administrative processes with our proven methods, driving efficiency and improving the overall patient experience.<span class="bubble-popup hidden">Enhance workflows!</span></li>
+        <li class="service-item mb-4 cursor-pointer relative" data-service-id="11" tabindex="0">And More: Reach out to discover additional bespoke services designed to address your practice’s specific challenges and aspirations.<span class="bubble-popup hidden">Discover more services!</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Our Success Section -->
+  <section id="success" class="section fade-in text-center py-32">
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="Our Success 📊" data-font-index="0"></h2>
+      <ul class="grid list-disc pl-6 mb-6 text-left max-w-2xl mx-auto text-base font-medium">
+        <li class="success-item mb-4 cursor-pointer relative" data-success-id="1" tabindex="0">Our clients consistently achieve an impressive average revenue increase of <span class="highlight">26%</span> within just the first year of partnering with us, a testament to our holistic and meticulously tailored strategies that optimize every facet of practice performance.<span class="bubble-popup hidden">26% revenue boost!</span></li>
+        <li class="success-item mb-4 cursor-pointer relative" data-success-id="2" tabindex="0">We deliver productivity gains ranging from 33% to 50% by implementing streamlined workflows and integrating advanced technological systems, significantly enhancing the day-to-day efficiency of healthcare operations.<span class="bubble-popup hidden">Up to 50% productivity!</span></li>
+        <li class="success-item mb-4 cursor-pointer relative" data-success-id="3" tabindex="0">Through our robust revenue cycle management techniques, we reduce accounts receivable by more than 40%, bolstering cash flow and fortifying the financial stability of the practices we serve.<span class="bubble-popup hidden">40% less receivables!</span></li>
+        <li class="success-item mb-4 cursor-pointer relative" data-success-id="4" tabindex="0">We take pride in serving over 30 diverse practices nationwide, ranging from small, independent clinics to expansive multi-specialty groups, each benefiting from our customized consulting solutions.<span class="bubble-popup hidden">Serving 30+ practices!</span></li>
+        <li class="success-item mb-4 cursor-pointer relative" data-success-id="5" tabindex="0">Our exceptional 95% client retention rate underscores our dedication to fostering enduring partnerships and delivering consistent, high-quality results that exceed expectations.<span class="bubble-popup hidden">95% retention rate!</span></li>
+        <li class="success-item mb-4 cursor-pointer relative" data-success-id="6" tabindex="0">We specialize in supporting practices with annual revenues between $1M and $5M, offering bespoke solutions that address the unique challenges and opportunities faced by mid-sized healthcare providers.<span class="bubble-popup hidden">Tailored for $1M-$5M!</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Subscribe Section with Spline Background -->
+  <section id="subscribe" class="section fade-in relative text-center py-32 mt-20 mb-20">
+    <div class="spline-wrapper">
+      <spline-viewer url="https://prod.spline.design/QF93hExmWxJjAxAW/scene.splinecode" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; pointer-events: auto;"></spline-viewer>
+      <img class="fallback-image hidden" src="/assets/images/fallback-subscribe.jpg" alt="Fallback Background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;">
+    </div>
+    <div class="spline-overlay absolute top-0 left-0 w-full h-full" style="background: linear-gradient(45deg, #8b5cf6, #3b82f6); opacity: 0.4; z-index: -1;"></div>
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="Subscribe 📬" data-font-index="0"></h2>
+      <p class="text-base font-normal mb-6 leading-relaxed">Stay at the forefront of healthcare innovation by subscribing to the Stellar Consults newsletter. Our expertly curated updates deliver the latest industry insights, advanced practice management techniques, and exclusive resources directly to your inbox. Whether you’re looking to refine your strategies or stay informed on emerging trends, our newsletter ensures you’re equipped with the knowledge and tools to <span class="highlight">succeed</span> in a competitive landscape.</p>
+      <div class="max-w-md mx-auto flex flex-col gap-4">
+        <input type="email" placeholder="Email Address" class="form-input px-4 py-3 border text-base" required>
+        <button type="button" class="btn signup-btn px-6 py-3 text-base font-medium">Sign Up</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Your Stellar Team Section -->
+  <section id="team" class="section fade-in text-center py-32">
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="Your Stellar Team 👩‍⚕️" data-font-index="0"></h2>
+      <h3 class="text-3xl font-medium mb-4 tracking-tight">Our Experience</h3>
+      <ul class="grid list-disc pl-6 mb-6 text-left max-w-2xl mx-auto text-base font-medium">
+        <li class="mb-4 team-item cursor-pointer" data-team-id="1" tabindex="0">Our team is spearheaded by consummate professionals boasting over a decade of specialized experience in healthcare consulting and management, bringing a wealth of <span class="highlight">knowledge</span> to every project.</li>
+        <li class="mb-4 team-item cursor-pointer" data-team-id="2" tabindex="0">We adopt a holistic approach to practice optimization, meticulously addressing every operational and strategic dimension to deliver comprehensive, lasting improvements.</li>
+        <li class="mb-4 team-item cursor-pointer" data-team-id="3" tabindex="0">Our customized action plans are painstakingly tailored to align with your practice’s specific needs and ambitious long-term objectives, ensuring relevance and impact.</li>
+        <li class="mb-4 team-item cursor-pointer" data-team-id="4" tabindex="0">We provide hands-on, immersive coaching for your staff, ensuring seamless adoption of new processes and fostering a culture of continuous improvement.</li>
+        <li class="mb-4 team-item cursor-pointer" data-team-id="5" tabindex="0">Our ongoing support includes regular, proactive check-ins and unfettered access to our dedicated consulting team, guaranteeing sustained success.</li>
+        <li class="mb-4 team-item cursor-pointer" data-team-id="6" tabindex="0">We employ a proprietary methodology that synergistically blends advanced data analytics with patient-centered design principles, setting a new standard in practice enhancement.</li>
+        <li class="mb-4 team-item cursor-pointer" data-team-id="7" tabindex="0">Our consistently high client satisfaction ratings reflect our unrelenting commitment to excellence and our ability to deliver transformative results time and again.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Our Approach Section -->
+  <section id="approach" class="section fade-in text-center py-32">
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="Our Approach 🔍" data-font-index="0"></h2>
+      <p class="text-base font-normal mb-6 leading-relaxed">Our proven, methodical approach commences with an exhaustive consultation, during which we meticulously identify operational inefficiencies and untapped growth opportunities unique to your practice. Following this, we present a thorough, meticulously detailed report that outlines a bespoke project plan, complete with precise timelines, critical milestones, in-depth cost analyses, and actionable, forward-thinking strategies. Our seasoned team collaborates closely with you throughout the implementation phase, ensuring a fluid transition and tangible, measurable <span class="highlight">outcomes</span>. This structured, results-driven methodology is engineered to secure sustainable success for your practice, positioning it as a leader in the healthcare sector.</p>
+    </div>
+  </section>
+
+  <!-- Why Us Section -->
+  <section id="why-us" class="section fade-in text-center py-32">
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="Why Choose Us? 🤝" data-font-index="0"></h2>
+      <p class="text-base font-normal mb-6 leading-relaxed">At Stellar Consults, we firmly believe that impactful healthcare consulting demands a selective, client-centric philosophy. We deliberately choose to work with a limited number of clients, ensuring that each receives the individualized attention, time, and expert guidance they deserve. Whether you’re seeking a strategic partner to navigate complex challenges, specialized expertise to unlock new opportunities, or innovative tools to revolutionize your operations, we stand ready to collaborate with you. Together, we’ll craft and refine a meticulously tailored success plan that aligns with your vision. Our steadfast commitment to partnership means you’ll have a trusted ally every step of the way. Contact us today to schedule a complimentary, no-obligation consultation and discover how we can elevate your practice into a thriving, future-ready <span class="highlight">powerhouse</span>.</p>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section id="resources" class="section fade-in text-center py-32">
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="Resources 📚" data-font-index="0"></h2>
+      <p class="text-base font-normal mb-6 leading-relaxed">Delve into our expansive, meticulously curated library of resources, thoughtfully designed to equip healthcare professionals with actionable, cutting-edge insights and unparalleled industry knowledge. From sophisticated revenue growth strategies to advanced workflow optimization techniques, our comprehensive collection of guides, in-depth articles, and illuminating case studies empowers your practice to achieve extraordinary <span class="highlight">success</span>. Stay ahead of the curve in the ever-evolving healthcare landscape with resources crafted by our team of experts, dedicated to your professional advancement.</p>
+      <ul class="grid list-disc pl-6 mb-6 text-left max-w-2xl mx-auto text-base font-medium">
+        <li class="mb-4"><a href="https://stellarconsults.io/blog/revenue-growth" class="resource-item hover:scale-105 transition-transform duration-400">Comprehensive Guide to Revenue Growth for Healthcare Practices</a></li>
+        <li class="mb-4"><a href="https://stellarconsults.io/blog/workflow-optimization" class="resource-item hover:scale-105 transition-transform duration-400">Top Tips for Workflow Optimization in Dental and Medical Settings</a></li>
+        <li class="mb-4"><a href="#success" class="resource-item hover:scale-105 transition-transform duration-400">Explore Our Success Metrics and Client Achievements</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="section fade-in text-center py-32">
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="Contact Us 📞" data-font-index="0"></h2>
+      <p class="text-base font-normal mb-6 leading-relaxed">We warmly invite you to connect with Stellar Consults to explore how our expertise can propel your practice to new <span class="highlight">heights</span>. Arrange a visit to our prestigious headquarters in Lower Manhattan’s iconic One World Trade Center, or opt for a convenient virtual consultation to discuss your needs from anywhere in the nation. Our dedicated team is fully committed to providing the unparalleled support, innovative solutions, and strategic guidance necessary to help your practice thrive in today’s competitive healthcare environment.</p>
+      <p class="text-base font-medium mb-4 leading-relaxed">Stellar Consults<br>Servcorp One World Trade Center, 285 Fulton St Fl 85, New York, NY 10007, United States<br>Phone: 646-490-0576<br>Email: info@stellarconsults.io</p>
+      <p class="text-base font-medium mb-4 leading-relaxed">Business Hours: Monday–Friday, 09:00 AM – 05:00 PM</p>
+      <p class="text-base font-medium mb-4 leading-relaxed">For our valued out-of-state clients, our team is prepared to travel frequently, delivering on-site support tailored to your location and needs. Contact us today to schedule a visit or engage in a detailed discussion about how we can serve you best.</p>
+      <div class="max-w-md mx-auto flex flex-col gap-4">
+        <input type="text" placeholder="Name" class="form-input px-4 py-3 border text-base" required>
+        <input type="email" placeholder="Email*" class="form-input px-4 py-3 border text-base" required>
+        <textarea placeholder="Message" class="form-input px-4 py-3 border text-base h-32" required></textarea>
+        <div class="text-sm text-gray-500 text-center">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</div>
+        <div class="flex gap-4 justify-center">
+          <button type="button" class="btn px-6 py-3 text-base font-medium">Send</button>
+          <button type="button" class="btn px-6 py-3 text-base font-medium">Cancel</button>
+        </div>
+      </div>
+      <p class="mt-4"><a href="#map-section" class="text-base font-medium hover:scale-105 transition-transform duration-400">Get Directions 📍</a></p>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section id="map-section" class="section fade-in text-center py-32">
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="Our Location 📍" data-font-index="0"></h2>
+      <p class="text-base font-normal mb-6 leading-relaxed">We warmly welcome you to visit our distinguished office, strategically situated within the iconic One World Trade Center in Lower Manhattan. This prime location positions us to effectively serve clients throughout the New York metropolitan area and beyond, offering a hub of innovation and <span class="highlight">excellence</span> in healthcare consulting.</p>
+      <div id="map" class="h-[400px] border"></div>
+    </div>
+  </section>
+
+  <!-- Lower Spline Section -->
+  <section id="spline-lower" class="section fade-in relative text-center min-h-[80vh] flex items-center justify-center">
+    <spline-viewer url="https://prod.spline.design/QF93hExmWxJjAxAW/scene.splinecode" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; pointer-events: auto;"></spline-viewer>
+    <img class="fallback-image hidden" src="/assets/images/fallback-lower.jpg" alt="Fallback Background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;">
+    <div class="spline-overlay absolute top-0 left-0 w-full h-full" style="background: linear-gradient(45deg, #8b5cf6, #3b82f6); opacity: 0.3; z-index: -1;"></div>
+    <div class="container mx-auto px-4 max-w-4xl relative z-10">
+      <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="Explore Our Vision 🚀" data-font-index="0"></h2>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 text-center relative z-10">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <a href="#home" class="logo text-2xl font-semibold no-underline hover:scale-105 transition-transform duration-400" aria-label="Stellar Consults Home">Stellar Consults 🚀</a>
+      <p class="mt-2 text-base">Copyright © 2025 Stellar Consults - All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/js/scripts.js"></script>
+</body>
+</html>
