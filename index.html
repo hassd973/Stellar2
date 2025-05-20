@@ -11,8 +11,14 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="bg-white text-black transition-colors duration-400">
+  <!-- Root Spline Background -->
+  <div class="spline-wrapper">
+    <spline-viewer url="https://prod.spline.design/QF93hExmWxJjAxAW/scene.splinecode" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; pointer-events: auto;"></spline-viewer>
+    <img class="fallback-image hidden" src="/assets/images/fallback.jpg" alt="Fallback Background" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;">
+  </div>
+
   <!-- Starfield Canvas -->
-  <canvas id="starfield" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: 0; display: block;"></canvas>
+  <canvas id="starfield" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: -3; display: block;"></canvas>
 
   <!-- Navigation Bar -->
   <nav class="fixed top: 0; w-full z-30 py-4">
@@ -32,10 +38,8 @@
     </div>
   </nav>
 
-  <!-- Hero Section with Full-Background Spline Viewer and Text Bubbles -->
+  <!-- Hero Section -->
   <section id="home" class="section fade-in relative text-center min-h-[80vh] flex items-center justify-center">
-    <spline-viewer url="https://prod.spline.design/QF93hExmWxJjAxAW/scene.splinecode" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; pointer-events: auto;"></spline-viewer>
-    <img class="fallback-image hidden" src="/assets/images/fallback.jpg" alt="Fallback Background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;">
     <div class="container mx-auto px-4 max-w-4xl relative z-10">
       <h1 class="text-5xl font-semibold mb-4 tracking-tight"><span class="typing-text" data-title="Stellar Consults 🚀" data-font-index="0"></span></h1>
       <p class="text-base font-normal mb-6 leading-relaxed">Welcome to Stellar Consults, where we are passionately committed to <span class="highlight">transforming</span> the healthcare landscape through innovative, state-of-the-art digital solutions meticulously crafted for dental and medical practices. Our visionary approach is designed to propel your practice into the future, equipping you with the tools and strategies needed to <span class="highlight">excel</span> in 2025 and beyond. By harnessing the latest technological advancements, we empower healthcare professionals to achieve extraordinary levels of efficiency, productivity, and patient satisfaction, ensuring your practice not only meets but exceeds the demands of a rapidly evolving industry.</p>
@@ -101,13 +105,9 @@
     </div>
   </section>
 
-  <!-- Subscribe Section with Spline Background -->
+  <!-- Subscribe Section -->
   <section id="subscribe" class="section fade-in relative text-center py-32 mt-20 mb-20">
-    <div class="spline-wrapper">
-      <spline-viewer url="https://prod.spline.design/QF93hExmWxJjAxAW/scene.splinecode" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; pointer-events: auto;"></spline-viewer>
-      <img class="fallback-image hidden" src="/assets/images/fallback-subscribe.jpg" alt="Fallback Background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;">
-    </div>
-    <div class="spline-overlay absolute top-0 left-0 w-full h-full" style="background: linear-gradient(45deg, #8b5cf6, #3b82f6); opacity: 0.4; z-index: -1;"></div>
+    <div class="spline-overlay absolute top-0 left-0 w-full h-full"></div>
     <div class="container mx-auto px-4 max-w-4xl relative z-10">
       <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="Subscribe 📬" data-font-index="0"></h2>
       <p class="text-base font-normal mb-6 leading-relaxed">Stay at the forefront of healthcare innovation by subscribing to the Stellar Consults newsletter. Our expertly curated updates deliver the latest industry insights, advanced practice management techniques, and exclusive resources directly to your inbox. Whether you’re looking to refine your strategies or stay informed on emerging trends, our newsletter ensures you’re equipped with the knowledge and tools to <span class="highlight">succeed</span> in a competitive landscape.</p>
@@ -195,11 +195,8 @@
     </div>
   </section>
 
-  <!-- Lower Spline Section -->
+  <!-- Lower Section -->
   <section id="spline-lower" class="section fade-in relative text-center min-h-[80vh] flex items-center justify-center">
-    <spline-viewer url="https://prod.spline.design/QF93hExmWxJjAxAW/scene.splinecode" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; pointer-events: auto;"></spline-viewer>
-    <img class="fallback-image hidden" src="/assets/images/fallback-lower.jpg" alt="Fallback Background" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;">
-    <div class="spline-overlay absolute top-0 left-0 w-full h-full" style="background: linear-gradient(45deg, #8b5cf6, #3b82f6); opacity: 0.3; z-index: -1;"></div>
     <div class="container mx-auto px-4 max-w-4xl relative z-10">
       <h2 class="text-4xl font-semibold mb-4 tracking-tight typing-text" data-title="Explore Our Vision 🚀" data-font-index="0"></h2>
     </div>
