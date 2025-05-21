@@ -1,0 +1,16 @@
+{
+  "name": "stellar-consults",
+  "version": "1.0.0",
+  "description": "Static landing page for Stellar Consults",
+  "main": "index.html",
+  "scripts": {
+    "build": "mkdir -p dist && cp -r index.html css js dist/",
+    "start": "npx serve -s ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "author": "",
+  "license": "ISC"
+}
